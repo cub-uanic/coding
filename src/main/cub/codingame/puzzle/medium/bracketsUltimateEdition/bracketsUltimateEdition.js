@@ -68,19 +68,27 @@ function countFlipsFor(e) {
             }
         }
 
-        e = e.replace(/[\[\]]{2}|[{}]{2}|[()]{2}|[<>]{2}/,
-            (match) => {
-                const chr1 = match.charAt(0)
-                if (chr1 === ']' || chr1 === '}' || chr1 === ')' || chr1 === '>') {
-                    flips++
-                }
-                const chr2 = match.charAt(1)
-                if (chr2 === '[' || chr2 === '{' || chr2 === '(' || chr2 === '<') {
-                    flips++
-                }
-                return ""
-            })
 
+        const flipChars = function (open, close) {
+            let oIdx = e.indexOf(open)
+            let cIdx = e.indexOf(close)
+            if (cIdx >= 0 && ((oIdx >= 0 && oIdx > cIdx) || (oIdx<0)) ) {
+                flips++
+                e = e.substr(0, cIdx) + open + e.substr(cIdx + 1)
+            }
+
+            oIdx = e.lastIndexOf(open)
+            cIdx = e.lastIndexOf(close)
+            if (oIdx >= 0 && ((cIdx >= 0 && oIdx > cIdx) || (cIdx<0)) ) {
+                flips++
+                e = e.substr(0, oIdx) + close + e.substr(oIdx + 1)
+            }
+        }
+
+        flipChars("[", ']')
+        flipChars("<", '>')
+        flipChars("{", '}')
+        flipChars("(", ')')
 
     }
 
