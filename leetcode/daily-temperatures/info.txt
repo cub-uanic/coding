@@ -1,0 +1,3 @@
+https://leetcode.com/problems/daily-temperatures/
+https://www.youtube.com/watch?v=-59FbGWsCgI
+
