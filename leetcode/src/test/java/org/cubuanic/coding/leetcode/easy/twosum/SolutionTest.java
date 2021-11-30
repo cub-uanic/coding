@@ -34,7 +34,7 @@ public class SolutionTest {
     public int[] expected;
 
     @Test
-    public void arrangeCoins() {
+    public void twoSum() {
         Solution solution = new Solution();
         int inputTarget = input[0];
         int[] inputData = Arrays.copyOfRange(input, 1, input.length);
@@ -42,13 +42,14 @@ public class SolutionTest {
     }
 
     @Test
-    public void arrangeCoins2() {
+    public void twoSum2() {
         Solution2 solution = new Solution2();
         int inputTarget = input[0];
         int[] inputData = Arrays.copyOfRange(input, 1, input.length);
-        int[] actual = solution.twoSum(inputData, inputTarget);
-        Arrays.sort(expected);
-        Arrays.sort(actual);
-        assertArrayEquals(expected, actual);
+        int[] actualData = solution.twoSum(inputData, inputTarget);
+        int[] expectedData = Arrays.copyOfRange(expected, 0, expected.length);
+        Arrays.sort(expectedData);
+        Arrays.sort(actualData);
+        assertArrayEquals(expectedData, actualData);
     }
 }
