@@ -1,5 +1,7 @@
 package org.cubuanic.coding.leetcode.easy.palindromelinkedlist;
 
+import org.cubuanic.coding.leetcode.ListNode;
+
 class Solution {
     public boolean isPalindrome(ListNode head) {
         if (head == null || head.next == null) return true;

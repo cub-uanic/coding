@@ -3,7 +3,7 @@ package org.cubuanic.coding.leetcode.easy.singlenumber;
 import java.util.HashSet;
 import java.util.Set;
 
-class Solution2 {
+class Solution2 implements Solution {
     public int singleNumber(int[] nums) {
         Set<Integer> seen = new HashSet<>();
 

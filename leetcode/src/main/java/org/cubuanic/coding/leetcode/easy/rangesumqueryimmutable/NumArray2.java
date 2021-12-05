@@ -1,6 +1,6 @@
 package org.cubuanic.coding.leetcode.easy.rangesumqueryimmutable;
 
-class NumArray2 {
+class NumArray2 implements NumArray {
     private final int[] sums;
 
     public NumArray2(int[] nums) {
@@ -13,6 +13,6 @@ class NumArray2 {
 
     public int sumRange(int left, int right) {
         if (left == 0) return sums[right];
-        else return sums[right] - sums[left-1];
+        else return sums[right] - sums[left - 1];
     }
 }

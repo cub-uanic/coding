@@ -1,5 +1,7 @@
 package org.cubuanic.coding.leetcode.easy.removeduplicatesfromsortedlist;
 
+import org.cubuanic.coding.leetcode.ListNode;
+
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         ListNode curr = head;

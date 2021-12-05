@@ -2,7 +2,7 @@ package org.cubuanic.coding.leetcode.easy.twosum;
 
 import java.util.HashMap;
 
-class Solution2 {
+class Solution2 implements Solution {
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> lookup = new HashMap<>(nums.length);
 

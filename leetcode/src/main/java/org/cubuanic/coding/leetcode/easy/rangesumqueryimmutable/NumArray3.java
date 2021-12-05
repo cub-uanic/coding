@@ -1,6 +1,6 @@
 package org.cubuanic.coding.leetcode.easy.rangesumqueryimmutable;
 
-class NumArray3 {
+class NumArray3 implements NumArray {
     private final int[] sums;
 
     public NumArray3(int[] nums) {

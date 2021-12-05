@@ -3,7 +3,7 @@ package org.cubuanic.coding.leetcode.easy.findallnumbersdisappearedinanarray;
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution3 {
+class Solution3 implements Solution {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         boolean[] found = new boolean[nums.length];
 

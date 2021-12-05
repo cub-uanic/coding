@@ -6,8 +6,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,25 +14,24 @@ import static org.junit.Assert.assertEquals;
 public class SolutionTest {
 
     @Parameters
-    public static Collection<Object[]> data() {
-        Collection<Object[]> testData = new ArrayList<>(4);
-        testData.add(new int[][]{{3, 0, 1}, {2}});
-        testData.add(new int[][]{{0, 1}, {2}});
-        testData.add(new int[][]{{9, 6, 4, 2, 3, 5, 7, 0, 1}, {8}});
-        testData.add(new int[][]{{0}, {1}});
-        return testData;
+    public static Iterable<Object[]> data() {
+        return Arrays.asList(new Object[][]{
+            {new int[]{3, 0, 1}, 2},
+            {new int[]{0, 1}, 2},
+            {new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1}, 8},
+            {new int[]{0}, 1}
+        });
     }
 
     @Parameter(0)
     public int[] input;
 
     @Parameter(1)
-    public int[] expected;
+    public int expected;
 
     @Test
     public void missingNumber() {
         Solution solution = new Solution();
-        int expectedResult = expected[0];
-        assertEquals(expectedResult, solution.missingNumber(input));
+        assertEquals(expected, solution.missingNumber(input));
     }
 }

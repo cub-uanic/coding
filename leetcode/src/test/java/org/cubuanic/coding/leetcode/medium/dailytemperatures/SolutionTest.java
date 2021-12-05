@@ -6,8 +6,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Arrays;
 
 import static org.junit.Assert.assertArrayEquals;
 
@@ -15,13 +14,13 @@ import static org.junit.Assert.assertArrayEquals;
 public class SolutionTest {
 
     @Parameters
-    public static Collection<Object[]> data() {
-        Collection<Object[]> testData = new ArrayList<>(4);
-        testData.add(new int[][]{{73, 74, 75, 71, 69, 72, 76, 73}, {1, 1, 4, 2, 1, 1, 0, 0}});
-        testData.add(new int[][]{{30, 40, 50, 60}, {1, 1, 1, 0}});
-        testData.add(new int[][]{{30, 60, 90}, {1, 1, 0}});
-        testData.add(new int[][]{{13, 12, 15, 11, 9, 12, 16}, {2, 1, 4, 2, 1, 1, 0}});
-        return testData;
+    public static Iterable<Object[]> data() {
+        return Arrays.asList(new Object[][]{
+            {new int[]{73, 74, 75, 71, 69, 72, 76, 73}, new int[]{1, 1, 4, 2, 1, 1, 0, 0}},
+            {new int[]{30, 40, 50, 60}, new int[]{1, 1, 1, 0}},
+            {new int[]{30, 60, 90}, new int[]{1, 1, 0}},
+            {new int[]{13, 12, 15, 11, 9, 12, 16}, new int[]{2, 1, 4, 2, 1, 1, 0}}
+        });
     }
 
     @Parameter(0)
@@ -32,13 +31,15 @@ public class SolutionTest {
 
     @Test
     public void dailyTemperaturesSolution1() {
-        Solution solution = new Solution();
-        assertArrayEquals(expected, solution.dailyTemperatures(input));
+        checkSolution(new Solution1());
     }
 
     @Test
     public void dailyTemperaturesSolution2() {
-        Solution2 solution = new Solution2();
+        checkSolution(new Solution2());
+    }
+
+    private void checkSolution(Solution solution) {
         assertArrayEquals(expected, solution.dailyTemperatures(input));
     }
 }

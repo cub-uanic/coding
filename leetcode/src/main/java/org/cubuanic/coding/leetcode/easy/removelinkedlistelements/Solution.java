@@ -1,5 +1,7 @@
 package org.cubuanic.coding.leetcode.easy.removelinkedlistelements;
 
+import org.cubuanic.coding.leetcode.ListNode;
+
 class Solution {
     public ListNode removeElements(ListNode head, int val) {
         while (head != null && head.val == val) head = head.next;

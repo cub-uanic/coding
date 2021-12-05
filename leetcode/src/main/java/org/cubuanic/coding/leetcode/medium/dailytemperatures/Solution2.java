@@ -1,6 +1,6 @@
 package org.cubuanic.coding.leetcode.medium.dailytemperatures;
 
-public class Solution2 {
+public class Solution2 implements Solution {
     public int[] dailyTemperatures(int[] temperatures) {
         int stackTop = -1;
         int[] stack = new int[temperatures.length];

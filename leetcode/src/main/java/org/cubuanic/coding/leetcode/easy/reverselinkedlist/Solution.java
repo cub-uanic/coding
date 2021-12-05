@@ -1,5 +1,7 @@
 package org.cubuanic.coding.leetcode.easy.reverselinkedlist;
 
+import org.cubuanic.coding.leetcode.ListNode;
+
 class Solution {
     public ListNode reverseList(ListNode head) {
         ListNode result = null;

@@ -1,6 +1,8 @@
 package org.cubuanic.coding.leetcode.easy.linkedlistcycle;
 
-class Solution2 {
+import org.cubuanic.coding.leetcode.ListNode;
+
+class Solution2 implements Solution {
     public boolean hasCycle(ListNode head) {
         if (head == null) return false;
 

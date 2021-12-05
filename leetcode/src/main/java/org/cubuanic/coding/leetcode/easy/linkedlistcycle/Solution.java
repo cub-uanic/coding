@@ -1,18 +1,7 @@
 package org.cubuanic.coding.leetcode.easy.linkedlistcycle;
 
-import java.util.HashSet;
-import java.util.Set;
+import org.cubuanic.coding.leetcode.ListNode;
 
-class Solution {
-    public boolean hasCycle(ListNode head) {
-        if (head == null) return false;
-
-        Set<ListNode> seen = new HashSet<>();
-        do {
-            if (seen.add(head)) head = head.next;
-            else return true;
-        } while (head != null);
-
-        return false;
-    }
+public interface Solution {
+    boolean hasCycle(ListNode head);
 }

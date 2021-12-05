@@ -1,5 +1,7 @@
 package org.cubuanic.coding.leetcode.easy.middleofthelinkedlist;
 
+import org.cubuanic.coding.leetcode.ListNode;
+
 class Solution {
     public ListNode middleNode(ListNode head) {
         ListNode slow = head;
