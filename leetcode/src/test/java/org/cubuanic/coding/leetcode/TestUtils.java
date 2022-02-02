@@ -1,10 +1,8 @@
 package org.cubuanic.coding.leetcode;
 
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class TestUtils {
     public static ListNode buildSimpleNodeList(int[] list) {
@@ -33,7 +31,7 @@ public class TestUtils {
         return head;
     }
 
-    public static void destroyNodeList(@Nullable ListNode head) {
+    public static void destroyNodeList(ListNode head) {
         while (head != null && head.next != null) {
             ListNode tmp = head.next;
             head.next = null;
@@ -51,6 +49,6 @@ public class TestUtils {
     }
 
     public static List<Integer> intArrayToList(int[] expected) {
-        return Arrays.stream(expected).boxed().collect(Collectors.toUnmodifiableList());
+        return Arrays.stream(expected).boxed().toList();
     }
 }

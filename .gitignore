@@ -34,7 +34,25 @@ nytprof.out
 #
 # Java specific
 #
+
+# Package files & compiled source
+.build/
+.gradle/
+build/
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+# Never ignore wrappers and sources
+!.mvn/wrapper/
 !.mvn/wrapper/maven-wrapper.jar
+!gradle/wrapper/
+!gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
 
@@ -209,20 +227,6 @@ logs/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
-
-# Package files & compiled source
-.build/
-.gradle/
-build/
-target/
-*.class
-*.jar
-*.war
-*.ear
-*.nar
-*.zip
-*.tar.gz
-*.rar
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
