@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
+            Arguments.of(new int[]{-1, 4, 2, 1, 9, 10}, 3),
             Arguments.of(new int[]{1, 2, 0}, 3),
             Arguments.of(new int[]{3, 4, -1, 1}, 2),
             Arguments.of(new int[]{7, 8, 9, 11, 12}, 1),
@@ -30,6 +31,12 @@ class SolutionTest {
     @MethodSource("data")
     public void firstMissingPositiveSolution2(int[] input, int expected) {
         checkSolution(new Solution2(), input, expected);
+    }
+
+    @ParameterizedTest
+    @MethodSource("data")
+    public void firstMissingPositiveSolution3(int[] input, int expected) {
+        checkSolution(new Solution3(), input, expected);
     }
 
     private void checkSolution(Solution solution, int[] input, int expected) {
