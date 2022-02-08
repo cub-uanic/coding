@@ -7,33 +7,36 @@
  */
 
 plugins {
-  // Apply the application plugin to add support for building a CLI application in Java.
+  // Mixed Java17 + Scala3 project
   id 'application'
+  id 'scala'
 }
 
-java {
-  toolchain {
-    languageVersion = JavaLanguageVersion.of(17)
-  }
-}
-
-repositories {
-  // Use Maven Central for resolving dependencies.
-  mavenCentral()
+application {
+  mainClass = 'org.cubuanic.coding.leetcode.App'
 }
 
 dependencies {
-  // Use JUnit Jupiter test framework.
+  implementation('org.scala-lang:scala3-library_3:3.0.2')
+
   testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
   testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
   testImplementation("org.junit.jupiter:junit-jupiter-params:5.8.2")
 }
 
-test {
-  useJUnitPlatform()
+tasks.withType(JavaCompile) {
+  sourceCompatibility = "17"
+  targetCompatibility = "17"
 }
 
-application {
-  // Define the main class for the application.
-  mainClass = 'org.cubuanic.coding.leetcode.App'
+tasks.withType(ScalaCompile) {
+  targetCompatibility = "11"
+}
+
+repositories {
+  mavenCentral()
+}
+
+test {
+  useJUnitPlatform()
 }
