@@ -1,54 +1,42 @@
 package org.cubuanic.coding.leetcode.easy.linkedlistcycle;
 
 import org.cubuanic.coding.leetcode.ListNode;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
+import java.util.stream.Stream;
 
 import static org.cubuanic.coding.leetcode.TestUtils.buildCycledNodeList;
 import static org.cubuanic.coding.leetcode.TestUtils.destroyNodeList;
-import static org.junit.Assert.assertEquals;
-import static org.junit.runners.Parameterized.Parameter;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(Parameterized.class)
 public class SolutionTest {
-
-    @Parameters
-    public static Iterable<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-            {-1, new int[]{}, false},
-            {-1, new int[]{1}, false},
-            {-1, new int[]{1, 2}, false},
-            {-1, new int[]{-21, 10, 17, 8, 4, 26, 5, 35, 33, -7, -16, 27, -12, 6, 29, -12, 5, 9, 20, 14, 14, 2, 13, -24, 21, 23, -21, 5}, false},
-            {0, new int[]{1}, true},
-            {0, new int[]{1, 2}, true},
-            {1, new int[]{3, 2, 0, -4}, true}
-        });
+    private static Stream<Arguments> data() {
+        return Stream.of(
+            Arguments.of(-1, new int[]{}, false),
+            Arguments.of(-1, new int[]{1}, false),
+            Arguments.of(-1, new int[]{1, 2}, false),
+            Arguments.of(-1, new int[]{-21, 10, 17, 8, 4, 26, 5, 35, 33, -7, -16, 27, -12, 6, 29, -12, 5, 9, 20, 14, 14, 2, 13, -24, 21, 23, -21, 5}, false),
+            Arguments.of(0, new int[]{1}, true),
+            Arguments.of(0, new int[]{1, 2}, true),
+            Arguments.of(1, new int[]{3, 2, 0, -4}, true)
+        );
     }
 
-    @Parameter(0)
-    public int pos;
-
-    @Parameter(1)
-    public int[] input;
-
-    @Parameter(2)
-    public boolean expected;
-
-    @Test
-    public void hasCycleSolution1() {
-        checkSolution(new Solution1());
+    @ParameterizedTest
+    @MethodSource("data")
+    public void hasCycleSolution1(int pos, int[] input, boolean expected) {
+        checkSolution(new Solution1(), pos, input, expected);
     }
 
-    @Test
-    public void hasCycleSolution2() {
-        checkSolution(new Solution2());
+    @ParameterizedTest
+    @MethodSource("data")
+    public void hasCycleSolution2(int pos, int[] input, boolean expected) {
+        checkSolution(new Solution2(), pos, input, expected);
     }
 
-    private void checkSolution(Solution solution) {
+    private void checkSolution(Solution solution, int pos, int[] input, boolean expected) {
         ListNode head = buildCycledNodeList(input, pos);
         assertEquals(expected, solution.hasCycle(head));
         destroyNodeList(head);

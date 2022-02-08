@@ -1,54 +1,43 @@
 package org.cubuanic.coding.leetcode.easy.rangesumqueryimmutable;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
+import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.runners.Parameterized.Parameter;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(Parameterized.class)
 public class NumArrayTest {
-
-    @Parameters
-    public static Iterable<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-            {
+    private static Stream<Arguments> data() {
+        return Stream.of(
+            Arguments.of(
                 new int[]{-2, 0, 3, -5, 2, -1},
                 new int[][]{{0, 2}, {2, 5}, {0, 5}},
                 new int[]{1, -1, -3}
-            }
-        });
+            )
+        );
     }
 
-    @Parameter(0)
-    public int[] nums;
-
-    @Parameter(1)
-    public int[][] ranges;
-
-    @Parameter(2)
-    public int[] expected;
-
-    @Test
-    public void sumRangeSolution1() {
-        checkSolution(new NumArray1(nums));
+    @ParameterizedTest
+    @MethodSource("data")
+    public void sumRangeSolution1(int[] nums, int[][] ranges, int[] expected) {
+        checkSolution(new NumArray1(nums), ranges, expected);
     }
 
-    @Test
-    public void sumRangeSolution2() {
-        checkSolution(new NumArray2(nums));
+    @ParameterizedTest
+    @MethodSource("data")
+    public void sumRangeSolution2(int[] nums, int[][] ranges, int[] expected) {
+        checkSolution(new NumArray2(nums), ranges, expected);
     }
 
-    @Test
-    public void sumRangeSolution3() {
-        checkSolution(new NumArray3(nums));
+    @ParameterizedTest
+    @MethodSource("data")
+    public void sumRangeSolution3(int[] nums, int[][] ranges, int[] expected) {
+        checkSolution(new NumArray3(nums), ranges, expected);
     }
 
-    private void checkSolution(NumArray solution) {
+    private void checkSolution(NumArray solution, int[][] ranges, int[] expected) {
         for (int i = 0; i < ranges.length; i++) {
             int[] range = ranges[i];
             int expectedResult = expected[i];

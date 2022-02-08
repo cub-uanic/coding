@@ -1,41 +1,28 @@
 package org.cubuanic.coding.leetcode.easy.binarysearch;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
+import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.runners.Parameterized.Parameter;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(Parameterized.class)
 public class SolutionTest {
-
-    @Parameters
-    public static Iterable<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-            {9, new int[]{-1, 0, 3, 5, 9, 12}, 4},
-            {2, new int[]{-1, 0, 3, 5, 9, 12}, -1},
-            {5, new int[]{5}, 0},
-            {5, new int[]{2, 5}, 1},
-            {2, new int[]{2, 5}, 0},
-            {5, new int[]{2, 3, 5}, 2}
-        });
+    private static Stream<Arguments> data() {
+        return Stream.of(
+            Arguments.of(9, new int[]{-1, 0, 3, 5, 9, 12}, 4),
+            Arguments.of(2, new int[]{-1, 0, 3, 5, 9, 12}, -1),
+            Arguments.of(5, new int[]{5}, 0),
+            Arguments.of(5, new int[]{2, 5}, 1),
+            Arguments.of(2, new int[]{2, 5}, 0),
+            Arguments.of(5, new int[]{2, 3, 5}, 2)
+        );
     }
 
-    @Parameter(0)
-    public int inputTarget;
-
-    @Parameter(1)
-    public int[] inputData;
-
-    @Parameter(2)
-    public int expected;
-
-    @Test
-    public void binarySearchTest() {
+    @ParameterizedTest
+    @MethodSource("data")
+    public void binarySearchTest(int inputTarget, int[] inputData, int expected) {
         Solution solution = new Solution();
         assertEquals(expected, solution.search(inputData, inputTarget));
     }

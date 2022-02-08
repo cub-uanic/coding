@@ -1,35 +1,25 @@
 package org.cubuanic.coding.leetcode.easy.arrangingcoins;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
+import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.runners.Parameterized.Parameter;
-import static org.junit.runners.Parameterized.Parameters;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(Parameterized.class)
 public class SolutionTest {
-
-    @Parameters
-    public static Iterable<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-            {5, 2},
-            {8, 3},
-            {1804289383, 60070}
-        });
+    private static Stream<Arguments> data() {
+        return Stream.of(
+            Arguments.of(5, 2),
+            Arguments.of(8, 3),
+            Arguments.of(1804289383, 60070)
+        );
     }
 
-    @Parameter(0)
-    public int input;
-
-    @Parameter(1)
-    public int expected;
-
-    @Test
-    public void arrangeCoins() {
+    @ParameterizedTest
+    @MethodSource("data")
+    public void arrangeCoins(int input, int expected) {
         Solution solution = new Solution();
         assertEquals(expected, solution.arrangeCoins(input));
     }

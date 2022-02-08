@@ -1,45 +1,36 @@
 package org.cubuanic.coding.leetcode.easy.containsduplicate;
 
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameter;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
+import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(Parameterized.class)
 public class SolutionTest {
-
-    @Parameters
-    public static Iterable<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-            {new int[]{1, 2, 3, 1}, true},
-            {new int[]{1, 2, 3, 4}, false},
-            {new int[]{1, 1, 1, 3, 3, 4, 3, 2, 4, 2}, true}
-        });
+    private static Stream<Arguments> data() {
+        return Stream.of(
+            Arguments.of(new int[]{1, 2, 3, 1}, true),
+            Arguments.of(new int[]{1, 2, 3, 4}, false),
+            Arguments.of(new int[]{1, 1, 1, 3, 3, 4, 3, 2, 4, 2}, true)
+        );
     }
 
-    @Parameter(0)
-    public int[] input;
-
-    @Parameter(1)
-    public boolean expected;
-
-    @Test
-    public void containsDuplicateSolution1() {
-        checkSolution(new Solution1());
+    @ParameterizedTest
+    @MethodSource("data")
+    public void containsDuplicateSolution1(int[] input, boolean expected) {
+        checkSolution(new Solution1(), input, expected);
     }
 
-    @Test
-    public void containsDuplicateSolution2() {
-        checkSolution(new Solution2());
+    @ParameterizedTest
+    @MethodSource("data")
+    public void containsDuplicateSolution2(int[] input, boolean expected) {
+        checkSolution(new Solution2(), input, expected);
     }
 
-    private void checkSolution(Solution solution) {
+    private void checkSolution(Solution solution, int[] input, boolean expected) {
         assertEquals(expected, solution.containsDuplicate(input));
     }
 }

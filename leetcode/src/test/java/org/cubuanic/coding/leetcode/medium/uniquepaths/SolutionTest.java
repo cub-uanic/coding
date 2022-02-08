@@ -1,47 +1,35 @@
 package org.cubuanic.coding.leetcode.medium.uniquepaths;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
+import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.runners.Parameterized.Parameter;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(Parameterized.class)
 public class SolutionTest {
-
-    @Parameters
-    public static Iterable<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-            {1, 1, 1},
-            {2, 2, 2},
-            {3, 7, 28},
-            {3, 2, 3},
-            {3, 3, 6},
-            {23, 12, 193536720}
-        });
+    private static Stream<Arguments> data() {
+        return Stream.of(
+            Arguments.of(1, 1, 1),
+            Arguments.of(2, 2, 2),
+            Arguments.of(3, 7, 28),
+            Arguments.of(3, 2, 3),
+            Arguments.of(3, 3, 6),
+            Arguments.of(23, 12, 193536720)
+        );
     }
 
-    @Parameter(0)
-    public int inputN;
-
-    @Parameter(1)
-    public int inputM;
-
-    @Parameter(2)
-    public int expected;
-
-    @Test
-    public void uniquePaths_direct() {
+    @ParameterizedTest
+    @MethodSource("data")
+    public void uniquePaths_direct(int inputN, int inputM, int expected) {
         Solution solution = new Solution();
         assertEquals(expected, solution.uniquePaths(inputM, inputN));
     }
 
-    @Test
-    public void uniquePaths_reversed() {
+    @ParameterizedTest
+    @MethodSource("data")
+    public void uniquePaths_reversed(int inputN, int inputM, int expected) {
         Solution solution = new Solution();
         assertEquals(expected, solution.uniquePaths(inputN, inputM));
     }

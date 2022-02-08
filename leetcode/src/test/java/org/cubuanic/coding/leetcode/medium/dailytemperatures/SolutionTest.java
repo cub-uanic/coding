@@ -1,45 +1,36 @@
 package org.cubuanic.coding.leetcode.medium.dailytemperatures;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameter;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
+import java.util.stream.Stream;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-@RunWith(Parameterized.class)
 public class SolutionTest {
-
-    @Parameters
-    public static Iterable<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-            {new int[]{73, 74, 75, 71, 69, 72, 76, 73}, new int[]{1, 1, 4, 2, 1, 1, 0, 0}},
-            {new int[]{30, 40, 50, 60}, new int[]{1, 1, 1, 0}},
-            {new int[]{30, 60, 90}, new int[]{1, 1, 0}},
-            {new int[]{13, 12, 15, 11, 9, 12, 16}, new int[]{2, 1, 4, 2, 1, 1, 0}}
-        });
+    private static Stream<Arguments> data() {
+        return Stream.of(
+            Arguments.of(new int[]{73, 74, 75, 71, 69, 72, 76, 73}, new int[]{1, 1, 4, 2, 1, 1, 0, 0}),
+            Arguments.of(new int[]{30, 40, 50, 60}, new int[]{1, 1, 1, 0}),
+            Arguments.of(new int[]{30, 60, 90}, new int[]{1, 1, 0}),
+            Arguments.of(new int[]{13, 12, 15, 11, 9, 12, 16}, new int[]{2, 1, 4, 2, 1, 1, 0})
+        );
     }
 
-    @Parameter(0)
-    public int[] input;
-
-    @Parameter(1)
-    public int[] expected;
-
-    @Test
-    public void dailyTemperaturesSolution1() {
-        checkSolution(new Solution1());
+    @ParameterizedTest
+    @MethodSource("data")
+    public void dailyTemperaturesSolution1(int[] input, int[] expected) {
+        checkSolution(new Solution1(), input, expected);
     }
 
-    @Test
-    public void dailyTemperaturesSolution2() {
-        checkSolution(new Solution2());
+    @ParameterizedTest
+    @MethodSource("data")
+    public void dailyTemperaturesSolution2(int[] input, int[] expected) {
+        checkSolution(new Solution2(), input, expected);
     }
 
-    private void checkSolution(Solution solution) {
+    private void checkSolution(Solution solution, int[] input, int[] expected) {
         assertArrayEquals(expected, solution.dailyTemperatures(input));
     }
 }

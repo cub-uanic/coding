@@ -1,36 +1,26 @@
 package org.cubuanic.coding.leetcode.easy.climbingstairs;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
+import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.runners.Parameterized.Parameter;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(Parameterized.class)
 public class SolutionTest {
-
-    @Parameters
-    public static Iterable<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-            {1, 1},
-            {2, 2},
-            {3, 3},
-            {4, 5}
-        });
+    private static Stream<Arguments> data() {
+        return Stream.of(
+            Arguments.of(1, 1),
+            Arguments.of(2, 2),
+            Arguments.of(3, 3),
+            Arguments.of(4, 5)
+        );
     }
 
-    @Parameter(0)
-    public int input;
-
-    @Parameter(1)
-    public int expected;
-
-    @Test
-    public void climbStairs() {
+    @ParameterizedTest
+    @MethodSource("data")
+    public void climbStairs(int input, int expected) {
         Solution solution = new Solution();
         assertEquals(expected, solution.climbStairs(input));
     }
