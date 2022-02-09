@@ -7,30 +7,44 @@
  */
 
 plugins {
-  // Mixed Java17 + Scala3 project
-  id 'application'
+  // Mixed Java17 + Scala2 + Groovy4 project
   id 'scala'
+  id 'groovy'
+  id 'application'
 }
 
 application {
-  mainClass = 'org.cubuanic.coding.leetcode.App'
+  /*
+   EXAMPLE for non-default main class:
+        ./gradlew -PmainClass=org.cubuanic.coding.groovy.TestApp run
+        ./gradlew -PmainClass=org.cubuanic.coding.scala.TestApp run
+   */
+  mainClass = project.hasProperty('mainClass') ? project.getProperty('mainClass') : 'org.cubuanic.coding.TestApp'
 }
 
 dependencies {
-  implementation('org.scala-lang:scala3-library_3:3.0.2')
+  implementation('org.scala-lang:scala-library:2.13.8')
+  implementation('org.apache.groovy:groovy:4.0.0')
+  testImplementation('org.spockframework:spock-core:2.0-groovy-3.0') {
+    exclude group: 'org.codehaus.groovy'
+  }
 
-  testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
-  testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
-  testImplementation("org.junit.jupiter:junit-jupiter-params:5.8.2")
+  testImplementation('org.junit.jupiter:junit-jupiter-api:5.8.2')
+  testImplementation('org.junit.jupiter:junit-jupiter-engine:5.8.2')
+  testImplementation('org.junit.jupiter:junit-jupiter-params:5.8.2')
 }
 
 tasks.withType(JavaCompile) {
-  sourceCompatibility = "17"
-  targetCompatibility = "17"
+  sourceCompatibility = '17'
+  targetCompatibility = '17'
 }
 
 tasks.withType(ScalaCompile) {
-  targetCompatibility = "11"
+  targetCompatibility = '11'
+}
+
+tasks.withType(GroovyCompile).configureEach {
+  options.forkOptions.jvmArgs << '-Dspock.iKnowWhatImDoing.disableGroovyVersionCheck=true'
 }
 
 repositories {
