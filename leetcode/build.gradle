@@ -24,6 +24,10 @@ application {
 
 dependencies {
   implementation('org.scala-lang:scala-library:2.13.8')
+  testImplementation('org.scalatest:scalatest_2.13:3.2.11')
+  testImplementation('org.scalatest:scalatest-flatspec_2.13:3.2.11')
+
+
   implementation('org.apache.groovy:groovy:4.0.0')
   testImplementation('org.spockframework:spock-core:2.0-groovy-3.0') {
     exclude group: 'org.codehaus.groovy'
@@ -32,6 +36,7 @@ dependencies {
   testImplementation('org.junit.jupiter:junit-jupiter-api:5.8.2')
   testImplementation('org.junit.jupiter:junit-jupiter-engine:5.8.2')
   testImplementation('org.junit.jupiter:junit-jupiter-params:5.8.2')
+  testImplementation('co.helmethair:scalatest-junit-runner:0.1.10')
 }
 
 tasks.withType(JavaCompile) {
@@ -53,4 +58,7 @@ repositories {
 
 test {
   useJUnitPlatform()
+//  useJUnitPlatform() {
+//    includeEngines 'scalatest'
+//  }
 }
