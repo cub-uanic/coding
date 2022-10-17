@@ -1,0 +1,12 @@
+**/*.d.ts
+/.yarn/**
+/lib/**
+/tmp/**
+/node_modules/**
+
+/src/public/
+/src/test/fixtures/**
+/src/types/
+
+coverage/*
+dist/*

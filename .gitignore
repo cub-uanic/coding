@@ -48,6 +48,7 @@ target/
 *.zip
 *.tar.gz
 *.rar
+
 # Never ignore wrappers and sources
 !.mvn/wrapper/
 !.mvn/wrapper/maven-wrapper.jar
