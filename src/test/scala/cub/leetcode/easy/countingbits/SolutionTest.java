@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class SolutionTest {
+class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(0, new int[]{0}),
@@ -21,7 +21,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void countBits(int input, int[] expected) {
+    void countBits(int input, int[] expected) {
         Solution solution = new Solution();
         assertArrayEquals(expected, solution.countBits(input));
     }

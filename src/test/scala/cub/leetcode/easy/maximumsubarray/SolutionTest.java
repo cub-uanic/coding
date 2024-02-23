@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SolutionTest {
+class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(new int[]{1}, 1),
@@ -31,7 +31,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void maxSubArray(int[] input, int expected) {
+    void maxSubArray(int[] input, int expected) {
         Solution solution = new Solution();
         assertEquals(expected, solution.maxSubArray(input));
     }

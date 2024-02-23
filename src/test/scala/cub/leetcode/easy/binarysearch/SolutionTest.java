@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SolutionTest {
+class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(9, new int[]{-1, 0, 3, 5, 9, 12}, 4),
@@ -22,7 +22,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void binarySearchTest(int inputTarget, int[] inputData, int expected) {
+    void binarySearchTest(int inputTarget, int[] inputData, int expected) {
         Solution solution = new Solution();
         assertEquals(expected, solution.search(inputData, inputTarget));
     }

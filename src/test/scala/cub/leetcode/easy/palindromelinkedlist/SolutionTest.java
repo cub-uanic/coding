@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 import static cub.leetcode.TestUtils.buildSimpleNodeList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SolutionTest {
+class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(new int[]{1}, true),
@@ -22,7 +22,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void isPalindrome(int[] input, boolean expected) {
+    void isPalindrome(int[] input, boolean expected) {
         Solution solution = new Solution();
         ListNode head = buildSimpleNodeList(input);
         boolean result = solution.isPalindrome(head);

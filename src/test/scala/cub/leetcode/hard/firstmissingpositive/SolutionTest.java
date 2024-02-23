@@ -23,19 +23,19 @@ class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void firstMissingPositiveSolution1(int[] input, int expected) {
+    void firstMissingPositiveSolution1(int[] input, int expected) {
         checkSolution(new Solution1(), input, expected);
     }
 
     @ParameterizedTest
     @MethodSource("data")
-    public void firstMissingPositiveSolution2(int[] input, int expected) {
+    void firstMissingPositiveSolution2(int[] input, int expected) {
         checkSolution(new Solution2(), input, expected);
     }
 
     @ParameterizedTest
     @MethodSource("data")
-    public void firstMissingPositiveSolution3(int[] input, int expected) {
+    void firstMissingPositiveSolution3(int[] input, int expected) {
         checkSolution(new Solution3(), input, expected);
     }
 

@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SolutionTest {
+class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(new int[]{3, 0, 1}, 2),
@@ -20,7 +20,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void missingNumber(int[] input, int expected) {
+    void missingNumber(int[] input, int expected) {
         Solution solution = new Solution();
         assertEquals(expected, solution.missingNumber(input));
     }

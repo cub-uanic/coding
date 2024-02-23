@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SolutionTest {
+class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(1, 1, 1),
@@ -22,14 +22,14 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void uniquePaths_direct(int inputN, int inputM, int expected) {
+    void uniquePaths_direct(int inputN, int inputM, int expected) {
         Solution solution = new Solution();
         assertEquals(expected, solution.uniquePaths(inputM, inputN));
     }
 
     @ParameterizedTest
     @MethodSource("data")
-    public void uniquePaths_reversed(int inputN, int inputM, int expected) {
+    void uniquePaths_reversed(int inputN, int inputM, int expected) {
         Solution solution = new Solution();
         assertEquals(expected, solution.uniquePaths(inputN, inputM));
     }

@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class SolutionTest {
+class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(new int[]{73, 74, 75, 71, 69, 72, 76, 73}, new int[]{1, 1, 4, 2, 1, 1, 0, 0}),
@@ -20,13 +20,13 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void dailyTemperaturesSolution1(int[] input, int[] expected) {
+    void dailyTemperaturesSolution1(int[] input, int[] expected) {
         checkSolution(new Solution1(), input, expected);
     }
 
     @ParameterizedTest
     @MethodSource("data")
-    public void dailyTemperaturesSolution2(int[] input, int[] expected) {
+    void dailyTemperaturesSolution2(int[] input, int[] expected) {
         checkSolution(new Solution2(), input, expected);
     }
 

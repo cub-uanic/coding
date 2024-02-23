@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CombinationIteratorTest {
+class CombinationIteratorTest {
     @Test
-    public void combinationIteratorTest_abc_2() {
+    void combinationIteratorTest_abc_2() {
         CombinationIterator itr = new CombinationIterator("abc", 2);
 
         assertEquals("ab", itr.next());
@@ -18,7 +18,7 @@ public class CombinationIteratorTest {
     }
 
     @Test
-    public void combinationIteratorTest_chp_1() {
+    void combinationIteratorTest_chp_1() {
         CombinationIterator itr = new CombinationIterator("chp", 1);
 
         assertTrue(itr.hasNext());

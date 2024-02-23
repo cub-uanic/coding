@@ -11,7 +11,7 @@ import static cub.leetcode.TestUtils.buildCycledNodeList;
 import static cub.leetcode.TestUtils.destroyNodeList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SolutionTest {
+class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(-1, new int[]{}, false),
@@ -26,13 +26,13 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void hasCycleSolution1(int pos, int[] input, boolean expected) {
+    void hasCycleSolution1(int pos, int[] input, boolean expected) {
         checkSolution(new Solution1(), pos, input, expected);
     }
 
     @ParameterizedTest
     @MethodSource("data")
-    public void hasCycleSolution2(int pos, int[] input, boolean expected) {
+    void hasCycleSolution2(int pos, int[] input, boolean expected) {
         checkSolution(new Solution2(), pos, input, expected);
     }
 

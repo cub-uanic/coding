@@ -7,9 +7,10 @@ import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LetsCodeQuiz20220221 {
+@SuppressWarnings("java:S3577")
+class LetsCodeQuiz20220221 { // Noncompliant
     @Test
-    public void letsCodeQuiz() {
+    void letsCodeQuiz() {
         Matcher singleA = Pattern.compile("a").matcher("aa");
         Matcher bStar = Pattern.compile("b*").matcher("aa");
         assertAll(

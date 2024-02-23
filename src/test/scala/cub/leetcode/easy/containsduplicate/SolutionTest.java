@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SolutionTest {
+class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(new int[]{1, 2, 3, 1}, true),
@@ -19,13 +19,13 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void containsDuplicateSolution1(int[] input, boolean expected) {
+    void containsDuplicateSolution1(int[] input, boolean expected) {
         checkSolution(new Solution1(), input, expected);
     }
 
     @ParameterizedTest
     @MethodSource("data")
-    public void containsDuplicateSolution2(int[] input, boolean expected) {
+    void containsDuplicateSolution2(int[] input, boolean expected) {
         checkSolution(new Solution2(), input, expected);
     }
 

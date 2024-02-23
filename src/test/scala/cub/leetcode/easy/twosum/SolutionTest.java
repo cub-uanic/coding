@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class SolutionTest {
+class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(-1, new int[]{0, 3, -3, 4, -1}, new int[]{4, 0}),
@@ -23,13 +23,13 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void twoSumSolution1(int target, int[] input, int[] expected) {
+    void twoSumSolution1(int target, int[] input, int[] expected) {
         checkSolution(new Solution1(), target, input, expected);
     }
 
     @ParameterizedTest
     @MethodSource("data")
-    public void twoSumSolution2(int target, int[] input, int[] expected) {
+    void twoSumSolution2(int target, int[] input, int[] expected) {
         checkSolution(new Solution2(), target, input, expected);
     }
 

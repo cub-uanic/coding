@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import static cub.leetcode.TestUtils.nodeListToArray;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class SolutionTest {
+class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(2, new int[]{1, 2, 2, 1}, new int[]{1, 1}),
@@ -24,7 +24,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void removeElements(int inputVal, int[] inputData, int[] expected) {
+    void removeElements(int inputVal, int[] inputData, int[] expected) {
         Solution solution = new Solution();
         ListNode inputList = TestUtils.buildSimpleNodeList(inputData);
         ListNode resultList = solution.removeElements(inputList, inputVal);

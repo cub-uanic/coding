@@ -11,7 +11,7 @@ import static cub.leetcode.TestUtils.buildSimpleNodeList;
 import static cub.leetcode.TestUtils.nodeListToArray;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class SolutionTest {
+class SolutionTest {
 
     private static Stream<Arguments> data() {
         return Stream.of(
@@ -23,7 +23,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void deleteDuplicates(int[] input, int[] expected) {
+    void deleteDuplicates(int[] input, int[] expected) {
         Solution solution = new Solution();
         ListNode inputList = buildSimpleNodeList(input);
         ListNode resultList = solution.deleteDuplicates(inputList);

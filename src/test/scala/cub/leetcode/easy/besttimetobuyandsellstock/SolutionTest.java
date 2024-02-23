@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SolutionTest {
+class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(new int[]{7, 1, 5, 3, 6, 4}, 5),
@@ -23,7 +23,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void maxProfit(int[] input, int expected) {
+    void maxProfit(int[] input, int expected) {
         Solution solution = new Solution();
         assertEquals(expected, solution.maxProfit(input));
     }

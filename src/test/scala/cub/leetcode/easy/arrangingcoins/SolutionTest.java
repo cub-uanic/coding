@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SolutionTest {
+class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(5, 2),
@@ -19,7 +19,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void arrangeCoins(int input, int expected) {
+    void arrangeCoins(int input, int expected) {
         Solution solution = new Solution();
         assertEquals(expected, solution.arrangeCoins(input));
     }

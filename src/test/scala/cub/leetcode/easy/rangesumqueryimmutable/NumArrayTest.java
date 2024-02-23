@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class NumArrayTest {
+class NumArrayTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(
@@ -21,19 +21,19 @@ public class NumArrayTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void sumRangeSolution1(int[] nums, int[][] ranges, int[] expected) {
+    void sumRangeSolution1(int[] nums, int[][] ranges, int[] expected) {
         checkSolution(new NumArray1(nums), ranges, expected);
     }
 
     @ParameterizedTest
     @MethodSource("data")
-    public void sumRangeSolution2(int[] nums, int[][] ranges, int[] expected) {
+    void sumRangeSolution2(int[] nums, int[][] ranges, int[] expected) {
         checkSolution(new NumArray2(nums), ranges, expected);
     }
 
     @ParameterizedTest
     @MethodSource("data")
-    public void sumRangeSolution3(int[] nums, int[][] ranges, int[] expected) {
+    void sumRangeSolution3(int[] nums, int[][] ranges, int[] expected) {
         checkSolution(new NumArray3(nums), ranges, expected);
     }
 

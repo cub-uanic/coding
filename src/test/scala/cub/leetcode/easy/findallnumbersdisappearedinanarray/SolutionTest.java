@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import static cub.leetcode.TestUtils.intArrayToList;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SolutionTest {
+class SolutionTest {
     private static Stream<Arguments> data() {
         return Stream.of(
             Arguments.of(new int[]{4, 3, 2, 7, 8, 2, 3, 1}, new int[]{5, 6}),
@@ -22,19 +22,19 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("data")
-    public void findDisappearedNumbersSolution1(int[] input, int[] expected) {
+    void findDisappearedNumbersSolution1(int[] input, int[] expected) {
         checkSolution(new Solution1(), input, expected);
     }
 
     @ParameterizedTest
     @MethodSource("data")
-    public void findDisappearedNumbersSolution2(int[] input, int[] expected) {
+    void findDisappearedNumbersSolution2(int[] input, int[] expected) {
         checkSolution(new Solution2(), input, expected);
     }
 
     @ParameterizedTest
     @MethodSource("data")
-    public void findDisappearedNumbersSolution3(int[] input, int[] expected) {
+    void findDisappearedNumbersSolution3(int[] input, int[] expected) {
         checkSolution(new Solution3(), input, expected);
     }
 
