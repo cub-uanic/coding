@@ -13,14 +13,14 @@ public class LetsCodeQuiz20220221 {
         Matcher singleA = Pattern.compile("a").matcher("aa");
         Matcher bStar = Pattern.compile("b*").matcher("aa");
         assertAll(
-            () -> assertFalse("aa".matches("a"), "aa =~ /a/"),       // 1 -
+            () -> assertFalse("aa".matches("a"), "aa =~ /a/"),      // 1 -
             () -> assertTrue("aa".matches("a*"), "aa =~ /a*/"),     // 2
             () -> assertTrue("aa".matches("a+"), "aa =~ /a+/"),     // 3
-            () -> assertFalse("aa".matches("b*"), "aa =~ /b*/"),     // 4 -
+            () -> assertFalse("aa".matches("b*"), "aa =~ /b*/"),    // 4 -
             () -> assertTrue("aa".matches("b*.*"), "aa =~ /b*.*/"), // 5
-            () -> assertFalse(singleA.matches(), "matches a"),             // 6 -
+            () -> assertFalse(singleA.matches(), "matches a"),            // 6 -
             () -> assertTrue(singleA.find(), "find a"),                   // 7
-            () -> assertFalse(bStar.matches(), "matches b"),               // 8 -
+            () -> assertFalse(bStar.matches(), "matches b"),              // 8 -
             () -> assertTrue(bStar.find(), "find b")                      // 9
 
             // next test will actually never end due to too complex regexp

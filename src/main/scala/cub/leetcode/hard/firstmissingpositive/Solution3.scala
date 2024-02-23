@@ -1,7 +1,10 @@
 package cub.leetcode.hard.firstmissingpositive
 
+import scala.annotation.tailrec
+
 class Solution3 extends Solution {
   def firstMissingPositive(nums: Array[Int]): Int = {
+    @tailrec
     def orderer(nums: Array[Int], index: Int = 0): Array[Int] = {
       if (index == nums.length) {
         nums

@@ -1,4 +1,4 @@
-package cub.scalaexercises.fp_in_scala;
+package cub.scalaexercises.fp_in_scala
 
 import cub.scalaexercises.UnitTest
 import cub.scalaexercises.fp_in_scala.Exercise_2_2.isSorted
