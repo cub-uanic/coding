@@ -1,8 +1,6 @@
 package cub.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class TestUtils {
     public static ListNode buildSimpleNodeList(int[] list) {
@@ -50,5 +48,15 @@ public class TestUtils {
 
     public static List<Integer> intArrayToList(int[] expected) {
         return Arrays.stream(expected).boxed().toList();
+    }
+
+    public static ListNode intListToNodeList(List<Integer> list) {
+        ListNode head = null;
+        ListIterator<Integer> iterator = list.listIterator(list.size());
+
+        while (iterator.hasPrevious()) {
+            head = new ListNode(iterator.previous(), head);
+        }
+        return head;
     }
 }
