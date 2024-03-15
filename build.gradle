@@ -37,12 +37,12 @@ dependencies {
 }
 
 tasks.withType(JavaCompile) {
-  sourceCompatibility = '17'
-  targetCompatibility = '17'
+  sourceCompatibility = '21'
+  targetCompatibility = '21'
 }
 
 tasks.withType(ScalaCompile) {
-  targetCompatibility = '17'
+  targetCompatibility = '21'
 }
 
 tasks.withType(GroovyCompile).configureEach {
@@ -62,12 +62,12 @@ test {
 
 compileKotlin {
   kotlinOptions {
-    jvmTarget = "17"
+    jvmTarget = "21"
   }
 }
 
 compileTestKotlin {
   kotlinOptions {
-    jvmTarget = "17"
+    jvmTarget = "21"
   }
 }
