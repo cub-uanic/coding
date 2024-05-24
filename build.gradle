@@ -22,7 +22,7 @@ application {
 }
 
 dependencies {
-  implementation('org.scala-lang:scala-library:2.13.10')
+  implementation('org.scala-lang:scala-library:2.13.11')
   testImplementation('org.scalatest:scalatest_2.13:3.2.14')
   testImplementation('org.scalatest:scalatest-flatspec_2.13:3.2.14')
 

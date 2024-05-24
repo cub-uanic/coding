@@ -9,7 +9,7 @@ public class AnalyzeHttpLog {
     }
 
     public static Map<String, Long> groupByLevel(List<Line> logs) {
-        logs.stream().map()
+//        logs.stream().map()
         return Collections.emptyMap();
     }
 
