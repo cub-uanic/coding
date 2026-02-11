@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Solution3 implements Solution {
     public String destCity(List<List<String>> paths) {
-        Map<String, String> graph = HashMap.newHashMap(paths.size());
+        Map<String, String> graph = new HashMap<>(paths.size());
         for (List<String> path : paths) {
             graph.put(path.get(0), path.get(1));
         }
