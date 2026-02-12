@@ -8,6 +8,27 @@ import java.util.Map;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+/*
+### Where
+
+https://job4j.ru/topics/42/task_code/552/new_task
+
+### Task
+
+В этом задании нужно реализовать методы для анализа лога от HTTP сервера.
+
+Входные данные является список из объектов Line. Объект Line имеет три поля: уровень лога, имя нити и текст сообщения.
+
+Необходимо реализовать методы:
+
+groupByLebel - метод должен вернуть карту, где ключ - это уровень лога, а значение - количество сообщений.
+
+maxByThread - метод должен вернуть имя нити, которая больше всех записала логов.
+
+detailByThread - метод должен вернуть карту, где ключ - это уровень лога, а значение - количество сообщений.
+Этот метод так же принимает имя нити для который нужный логи и список по которому нужно вывести уровени.
+
+ */
 
 class AnalyzeHttpLogTest {
 
@@ -20,7 +41,7 @@ class AnalyzeHttpLogTest {
             new AnalyzeHttpLog.Line("DEBUG", "[threads [zqfz [wbye [zfq]]] - 1]", "[cz] bxa")
         );
         assertThat(AnalyzeHttpLog.groupByLevel(logs),
-            is(Map.of("ERROR", 3, "DEBUG", 1))
+            is(Map.of("ERROR", 3L, "DEBUG", 1L))
         );
     }
 
@@ -46,7 +67,7 @@ class AnalyzeHttpLogTest {
             new AnalyzeHttpLog.Line("DEBUG", "[threads [qbxb]]", "[cz] bxa")
         );
         assertThat(AnalyzeHttpLog.detailByThread(logs, "[threads [qbxb]]", List.of("ERROR", "WARNING")),
-            is(Map.of("ERROR", 3, "DEBUG", 1))
+            is(Map.of("ERROR", 3L, "DEBUG", 1L))
         );
     }
 }
