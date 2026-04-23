@@ -18,10 +18,15 @@ application {
    EXAMPLE for non-default main class:
         ./gradlew -PmainClass=cub.testapp.ScalaTestApp run
    */
-  mainClass = project.hasProperty('mainClass') ? project.getProperty('mainClass') : 'cub.testapp.JavaTestApp'
+  mainClass = project.hasProperty('mainClass')
+    ? project.getProperty('mainClass')
+    : 'cub.testapp.JavaTestApp'
 }
 
 dependencies {
+  implementation('com.squareup.okhttp3:okhttp:4.9.2')
+  implementation("com.google.code.gson:gson:2.13.2")
+
   implementation('org.scala-lang:scala-library:2.13.11')
   testImplementation('org.scalatest:scalatest_2.13:3.2.14')
   testImplementation('org.scalatest:scalatest-flatspec_2.13:3.2.14')

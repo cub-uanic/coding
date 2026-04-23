@@ -1,9 +1,9 @@
-package cub.leetcode.easy.arrangingcoins;
+package cub.coderbyte.readjson;
 
 import com.google.gson.*;
 import okhttp3.*;
 
-class Solution2 {
+class Solution {
     private static final String POSTS_URL = "https://coderbyte.com/api/challenges/json/all-posts";
 
     public static int fetchAndCountPosts(final String postsUrl) throws Exception {
