@@ -1,4 +1,4 @@
-const Solution = require('../../../../main/scala/cub/codewars/solution-template')
+const Solution = require('../../../../main/java/cub/codewars/solution-template')
 
 const Test = {
   describe,

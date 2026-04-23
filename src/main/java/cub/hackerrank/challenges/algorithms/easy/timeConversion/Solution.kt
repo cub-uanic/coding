@@ -1,6 +1,8 @@
 package cub.hackerrank.challenges.algorithms.easy.timeConversion
 
 import java.util.*
+import java.util.Locale
+import java.util.Locale.getDefault
 import java.util.regex.Pattern
 
 /*
@@ -12,7 +14,7 @@ fun timeConversion(s: String): String {
      */
     val matcher = Pattern
         .compile("^(..)(.*)(..)$")
-        .matcher(s.toUpperCase())
+        .matcher(s.uppercase(getDefault()))
     matcher.find()
     var h = matcher.group(1).toInt()
     val rest = matcher.group(2)

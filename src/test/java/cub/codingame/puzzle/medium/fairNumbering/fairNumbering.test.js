@@ -6,7 +6,7 @@
 const {
   digitsCount,
   fairNumbering,
-} = require('../../../../../../../main/scala/cub/codingame/puzzle/medium/fairNumbering/fairNumbering')
+} = require('../../../../../../../main/java/cub/codingame/puzzle/medium/fairNumbering/fairNumbering')
 
 describe('Testing digitsCount', () => {
   test('Incorrect arguments', () => {
